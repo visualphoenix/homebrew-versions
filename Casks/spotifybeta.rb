@@ -1,10 +1,21 @@
 cask :v1 => 'spotifybeta' do
-  version '1.0.0.588.g5dffdc66-3237'
-  sha256 '918101254dd8177dc66e2642edf65500ce3f13ef4ce089925fef5f77529979ab'
+  version '1.0.0.1212.gc1771003-2016'
+  sha256 '7e702d08520e4ff8569afb12504788321f3e81b436685a72e0336f10f05720b8'
 
   url "http://download.spotify.com/beta/spotify-app-#{version}.dmg"
-  homepage 'https://www.spotify.com/'
-  license :unknown
+  name 'Spotify Beta'
+  name 'Spotify'
+  homepage 'https://www.spotify.com'
+  license :gratis
 
   app 'SpotifyBeta.app'
+
+  uninstall :launchctl => 'com.spotify.webhelper'
+
+  zap :delete => [
+                  '~/Library/Application Support/Spotify',
+                  '~/Library/Preferences/com.spotify.client.plist',
+                  '~/Library/Caches/com.spotify.client',
+                  '~/Library/Logs/Spotify'
+                 ]
 end

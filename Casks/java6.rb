@@ -7,5 +7,8 @@ cask :v1 => 'java6' do
   license :unknown
 
   pkg 'JavaForOSX.pkg'
+
   uninstall :pkgutil => 'com.apple.pkg.JavaForMacOSX107'
+  
+  depends_on :macos => '<= :yosemite'
 end

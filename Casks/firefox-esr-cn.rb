@@ -1,10 +1,10 @@
 cask :v1 => 'firefox-esr-cn' do
-  version '31.3.0'
-  sha256 '1b32c03877f8ae544f4b5bcf8e4a0d31ce9771192130c357954db769c4393dda'
+  version '38.0.1'
+  sha256 '01ce3fde0c70388f5ac432bc745f474bd5b2ab76556d687c636224f31d3bd952'
 
-  url "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/latest-esr/mac/zh-CN/Firefox%20#{version}esr.dmg"
-  homepage 'https://www.mozilla.org/zh-CN/firefox/desktop/'
-  license :oss
+  url "https://download.mozilla.org/?product=firefox-#{version}esr-SSL&os=osx&lang=zh-CN"
+  homepage 'https://www.mozilla.org/zh-CN/firefox/organizations/'
+  license :mpl
 
   app 'Firefox.app'
 end

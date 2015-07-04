@@ -1,9 +1,19 @@
 cask :v1 => 'intellij-idea-ce-eap' do
-  version '139.463.4'
-  sha256 '21b6a0241d43ea3c8755df518b87a6bef7341b85662b1aaf0c3bbc9a4fdcfac9'
+  version '142.2491.4'
+  sha256 '280e852beecff74301ecd402aa07109e9387930693d9bfd6357fc327d401e776'
 
-  url "http://download.jetbrains.com/idea/ideaIC-#{version}.dmg"
-  homepage 'https://confluence.jetbrains.com/display/IDEADEV/IDEA+14+EAP'
+  url "https://download.jetbrains.com/idea/ideaIC-#{version}-custom-jdk-bundled.dmg"
+  name 'IntelliJ IDEA EAP :: CE'
+  homepage 'https://confluence.jetbrains.com/display/IDEADEV/IDEA+15+EAP'
+  license :apache
 
-  app 'IntelliJ IDEA 14 CE EAP.app'
+  app 'IntelliJ IDEA 15 CE EAP.app'
+
+  zap :delete => [
+		  '~/Library/Preferences/com.jetbrains.intellij.plist',
+                  '~/Library/Application Support/IdeaIC15',
+                  '~/Library/Preferences/IdeaIC15',
+                  '~/Library/Caches/IdeaIC15',
+                  '~/Library/Logs/IdeaIC15',
+                 ]
 end

@@ -1,10 +1,10 @@
 cask :v1 => 'pycharm-eap' do
-  version '139.113'
-  sha256 '2df8db23f5da041e6c30c787c6cf4fc2864f197d639aba05785fc49009750c67'
+  version '141.1075'
+  sha256 'ec9c79b709142364b5315dd0d98fc9b9a9ee0d2c15fe9745e1e4fceb35620578'
 
   url "http://download.jetbrains.com/python/pycharm-professional-#{version}.dmg"
   homepage 'http://confluence.jetbrains.com/display/PYH/JetBrains+PyCharm+Preview+(EAP)'
   license :unknown
 
-  app 'PyCharm 4.0 EAP.app'
+  app 'PyCharm 4.5 EAP.app'
 end

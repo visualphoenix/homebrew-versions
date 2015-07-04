@@ -1,10 +1,12 @@
 cask :v1 => 'thunderbird-it' do
-  version '31.2.0'
-  sha256 '28bacc4d40ddc1d81eacb4b921006737a58fa69732b5afcbe596a4ec5709bc90'
+  version '38.0.1'
+  sha256 'a737aab1f62fad529698d58d7e8721e02306f9b141ae3207b428820a37528e47'
 
-  url "http://download-installer.cdn.mozilla.net/pub/thunderbird/releases/#{version}/mac/it/Thunderbird%20#{version}.dmg"
+  url "https://download.mozilla.org/?product=thunderbird-#{version}&os=osx&lang=it"
+  name 'Mozilla Thunderbird'
   homepage 'https://www.mozilla.org/it/thunderbird/'
-  license :oss
+  license :mpl
+  tags :vendor => 'Mozilla'
 
   app 'Thunderbird.app'
 end

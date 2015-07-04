@@ -1,10 +1,11 @@
 cask :v1 => 'firefox-beta-cn' do
-  version '32.0b1'
-  sha256 '782e468b0277fd38f57205acf88f7dc3266b0f751ff40859d4772b8f22c7f13a'
+  version '39.0b5'
+  sha256 '95c8beb8007f89ebaabacdab4c1e3a494e50e05c3c6e7d96a52c68c57b5ae58f'
 
-  url "https://download.mozilla.org/?product=firefox-#{version}&os=osx&lang=zh-CN"
+  url "https://download.mozilla.org/?product=firefox-#{version}-SSL&os=osx&lang=zh-CN"
   homepage 'https://www.mozilla.org/zh-CN/firefox/beta/'
-  license :oss
+  license :mpl
+  tags :vendor => 'Mozilla'
 
   app 'Firefox.app'
 end

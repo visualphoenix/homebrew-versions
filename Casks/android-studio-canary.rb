@@ -1,14 +1,18 @@
 cask :v1 => 'android-studio-canary' do
-  version '1.0.0-rc1'
-  sha256 'c6d818a93dbc865885158c7006811774c6b452df31dbdfee0bd63232f42f4d9d'
+  version '1.3.0.5'
+  sha256 '6591384dd1f916c00306bc656ed61e53e0b309de431597c492f332e75f3c16a8'
 
-  url "https://dl.google.com/dl/android/studio/ide-zips/#{version}/android-studio-ide-135.1598475-mac.zip"
+  url "http://dl.google.com/dl/android/studio/ide-zips/#{version}/android-studio-ide-141.2024585-mac.zip"
   homepage 'http://tools.android.com/download/studio'
-  license :unknown
+  license :apache
 
   app 'Android Studio.app'
 
-  postflight do
-    system '/usr/libexec/PlistBuddy', '-c', 'Set :JVMOptions:JVMVersion 1.6+', "#{staged_path}/Android Studio.app/Contents/Info.plist"
-  end
+  caveats <<-EOS.undent
+    If you have Java 7 or above installed, you may want to use it as Android Studio JDK, for example:
+
+    export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk
+
+    Please take a look at this post: http://tools.android.com/recent/androidstudio1rc3_releasecandidate3released
+  EOS
 end

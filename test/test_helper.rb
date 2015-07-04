@@ -1,20 +1,22 @@
 require 'bundler'
 require 'bundler/setup'
 
+# just in case
+if RUBY_VERSION.to_i < 2
+  raise 'brew-cask: Ruby 2.0 or greater is required.'
+end
+
 homebrew_path = Pathname(`brew --prefix`.chomp)
 homebrew_path = Pathname('/usr/local') unless homebrew_path.exist?
 
-# add cask lib to load path
+# add homebrew-cask lib to load path
 brew_cask_path = homebrew_path.join('Library', 'Taps', 'caskroom', 'homebrew-cask')
 lib_path = brew_cask_path.join('lib')
-
 $:.push(lib_path)
 
-# add homebrew to load path
-$:.push(homebrew_path.join('Library', 'Homebrew'))
-
 # require homebrew testing env
-require 'test/testing_env'
+# todo: removeme, this is transitional
+require 'vendor/homebrew-fork/testing_env'
 
 # must be called after testing_env so at_exit hooks are in proper order
 require 'minitest/autorun'
@@ -22,14 +24,14 @@ require 'minitest/autorun'
 # require 'minitest-colorize'
 
 # our baby
-require 'cask'
+require 'hbc'
 
 # pretend like we installed the cask tap
 project_root = Pathname.new(File.expand_path("#{File.dirname(__FILE__)}/../"))
-taps_dest = HOMEBREW_LIBRARY/"Taps/caskroom"
+taps_dest = Hbc.homebrew_prefix.join(*%w{Library Taps caskroom})
 
 # create directories
 FileUtils.mkdir_p taps_dest
-HOMEBREW_PREFIX.join('bin').mkdir
+FileUtils.mkdir_p Hbc.homebrew_prefix.join('bin')
 
-FileUtils.ln_s project_root, taps_dest/"homebrew-cask"
+FileUtils.ln_s project_root, taps_dest.join('homebrew-cask')

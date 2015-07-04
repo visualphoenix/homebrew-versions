@@ -1,10 +1,11 @@
 cask :v1 => 'sequel-pro-nightly' do
-  version '4293'
-  sha256 '8d75ee4c5198de7bfde6a3fb5578812c1dbe13e08f6451dc219f31fc0d3ef722'
+  version '19a1c9f81e'
+  sha256 '246f509c708232e4c52156f661d3798dbb4a57458e0ae9a943aef8cda287b153'
 
-  url 'http://nightly.sequelpro.com/builds/Sequel_Pro_r0c2ea8b95e.dmg'
+  url "http://nightly.sequelpro.com/builds/Sequel_Pro_r#{version}.dmg"
+  name 'Sequel Pro'
   homepage 'http://nightly.sequelpro.com/'
-  license :unknown
+  license :mit
 
   app 'Sequel Pro.app'
 end
